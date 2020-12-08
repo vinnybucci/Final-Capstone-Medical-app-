@@ -47,7 +47,8 @@ export default {
     return {
       user: {
         username: "",
-        password: ""
+        password: "",
+        user_role: ""
       },
       invalidCredentials: false
     };
@@ -60,7 +61,10 @@ export default {
           if (response.status == 200) {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
-            this.$router.push("/");
+            // if(user.user_role == "admin") {
+            //   this.$router.push("adminHome");
+            // }
+              this.$router.push("adminHome");
           }
         })
         .catch(error => {
