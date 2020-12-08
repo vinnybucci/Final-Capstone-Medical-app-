@@ -8,6 +8,9 @@ export default {
 
   register(user) {
     return axios.post('/register', user)
-  }
+  },
 
+  getPendingDoctors() {
+    return axios.get('/getPendingDoctors')
+  }
 }
