@@ -63,6 +63,14 @@ namespace Capstone
             services.AddSingleton<ITokenGenerator>(tk => new JwtGenerator(Configuration["JwtSecret"]));
             services.AddSingleton<IPasswordHasher>(ph => new PasswordHasher());
             services.AddTransient<IUserDAO>(m => new UserSqlDAO(connectionString));
+            services.AddTransient<IOfficeDAO>(m => new OfficeSqlDAO(connectionString));
+            services.AddTransient<IAddressDAO>(m => new AddressSqlDAO(connectionString));
+            services.AddTransient<IOfficeAddressDAO>(m => new OfficeAddressSqlDAO(connectionString));
+            services.AddTransient<IDoctorDAO>(m => new DoctorSqlDAO(connectionString));
+            services.AddTransient<IAppointmentDAO>(m => new AppointmentSqlDAO(connectionString));
+            services.AddTransient<IPatientsDAO>(m => new PatientsSqlDAO(connectionString));
+            services.AddTransient<IReviewDAO>(m => new ReviewSqlDAO(connectionString));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
